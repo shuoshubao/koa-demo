@@ -11,10 +11,12 @@
     "babel-preset-stage-2": "^6.24.1",
     "css": "^2.2.1",
     "koa": "^2.3.0",
-    "koa-body": "^2.3.0"
+    "koa-body": "^2.3.0",
+    "koa-router": "^7.2.1"
   },
   "scripts": {
-    "start": "node_modules/.bin/babel-node app"
+    "app": "node_modules/.bin/babel-node app",
+    "app2": "node_modules/.bin/babel-node app2"
   },
   "devDependencies": {
     "node-fetch": "^1.7.1"

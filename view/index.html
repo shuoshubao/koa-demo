@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Koa</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    main {
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>hello, Koa</h1>
+
+    <div class="input-group">
+      <span class="input-group-addon">https</span>
+      <input type="text" class="form-control" placeholder="输入url" value="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">搜索</button>
+      </span>
+    </div>
+
+    <h1>代码</h1>
+    <hr>
+
+    <pre></pre>
+
+</main>
+
+<script>
+document.querySelector('button').onclick = () => {
+    const url = document.querySelector('input').value
+    console.log(url)
+    fetch('', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            url
+        })
+    })
+    .then(rs => rs.text())
+    .then(rs => {
+        document.querySelector('pre').innerHTML = rs
+    })
+}
+</script>
+
+</body>
+</html>

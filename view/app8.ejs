@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Koa</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    main {
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>hello, Koa</h1>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <label for="exampleInputName2">Category: </label>
+        <select name="category" id="category">
+            <% Object.keys(articleJSON).forEach(function(v) { %>
+                <option value="<%= v %>"><%= v %></option>
+            <% }) %>
+        </select>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="exampleInputEmail2">Title: </label>
+        <select name="title" id="title"></select>
+      </div>
+      <hr>
+      <button type="button" class="btn btn-default">搜索</button>
+    </div>
+
+    <h1>返回结果</h1>
+    <hr>
+
+    <pre></pre>
+
+</main>
+
+<script src="http://www.css88.com/jqapi-1.9/js/jquery.min.js"></script>
+
+<script>
+document.querySelector('button').onclick = () => {
+    const {value: category} = document.querySelector('#category')
+    const {value: title} = document.querySelector('#title')
+
+    fetch(`/docs/${category}/${title}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({})
+    })
+    .then(rs => rs.text())
+    .then(rs => {
+        document.querySelector('pre').innerHTML = rs
+    })
+}
+
+document.querySelector('#category').onchange = e => {
+    const category = e.target.value
+    console.log(category)
+    fetch('/api/getArticleList?category=' + category)
+    .then(rs => rs.json())
+    .then(rs => {
+        document.querySelector('#title').innerHTML = rs.map(v => `<option value="${v.name}">${v.name}</option>`)
+    })
+}
+
+$('#category').change()
+</script>
+
+<script>
+</script>
+
+</body>
+</html>

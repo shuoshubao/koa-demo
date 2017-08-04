@@ -49,8 +49,7 @@ document.querySelector('button').onclick = () => {
 
     fetch(`/docs/${category}/${title}`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({})
+        headers: {'Content-Type': 'application/json'}
     })
     .then(rs => rs.text())
     .then(rs => {
@@ -59,12 +58,15 @@ document.querySelector('button').onclick = () => {
 }
 
 document.querySelector('#category').onchange = e => {
-    const category = e.target.value
-    console.log(category)
-    fetch('/api/getArticleList?category=' + category)
+    const {value: category} = e.target
+    fetch('/api/getArticleList', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({category})
+    })
     .then(rs => rs.json())
     .then(rs => {
-        document.querySelector('#title').innerHTML = rs.map(v => `<option value="${v.name}">${v.name}</option>`)
+        document.querySelector('#title').innerHTML = rs.data.map(v => `<option value="${v.name}">${v.name}</option>`)
     })
 }
 

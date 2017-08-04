@@ -33,14 +33,12 @@ router
     })
     ctx.body = ret
 })
-.get('/docs/:category/:title', async(ctx, next) => {
-    const url = path.resolve(__dirname, 'docs', `${ctx.params.category}/${ctx.params.title}.md`)
-    const str = await readFile(url)
-    ctx.body = str
-})
-.get('/api/getArticleList', async(ctx, next) => {
-    const params = querystring.parse(ctx.querystring)
-    ctx.body = articleJSON[params.category]
+.post('/api/getArticleList', async(ctx, next) => {
+    ctx.body = {
+        errno: 0,
+        essmsg: '',
+        data: articleJSON[ctx.request.body.category]
+    }
 })
 .post('/docs/:category/:title', async(ctx, next) => {
     const url = path.resolve(__dirname, 'docs', `${ctx.params.category}/${ctx.params.title}.md`)

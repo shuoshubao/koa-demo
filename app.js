@@ -2,11 +2,11 @@ import fs from 'fs'
 import path from 'path'
 import css from 'css'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import fetch from 'node-fetch'
 
 const app = new Koa()
-app.use(koaBody())
+app.use(bodyParser())
 
 /*app.use(ctx => {
     const data = fs.readFileSync('./package.json')

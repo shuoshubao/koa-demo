@@ -2,14 +2,14 @@ import fs from 'fs'
 import path from 'path'
 import css from 'css'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import Router from 'koa-router'
 import fetch from 'node-fetch'
 
 const app = new Koa()
 const router = new Router()
 
-app.use(koaBody())
+app.use(bodyParser())
 
 router.get('/', async(ctx, next) => {
     ctx.body = fs.readFileSync('./view/index.html').toString()

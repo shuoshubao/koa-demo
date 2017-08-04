@@ -3,7 +3,7 @@ import path from 'path'
 import chalk from 'chalk'
 import css from 'css'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import Router from 'koa-router'
 import onerror from 'koa-onerror'
 import fetch from 'node-fetch'
@@ -19,7 +19,7 @@ onerror(app, {
     redirect: 'https://www.npmjs.com/package/koa-onerror'
 })
 
-app.use(koaBody())
+app.use(bodyParser())
 
 const delayTime = () => new Promise((resolve, reject) => {
     const t1 = Date.now()

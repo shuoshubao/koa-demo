@@ -5,7 +5,7 @@ const querystring = require('querystring')
 import chalk from 'chalk'
 import ejs from 'ejs'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import Router from 'koa-router'
 
 import articleJSON from './data/article.json'
@@ -13,7 +13,7 @@ import articleJSON from './data/article.json'
 const app = new Koa()
 const router = new Router()
 
-app.use(koaBody())
+app.use(bodyParser())
 
 const readFile = path => new Promise((resolve, reject) => {
     fs.readFile(path, (e, data) => {

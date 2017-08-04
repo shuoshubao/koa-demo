@@ -3,13 +3,13 @@ import path from 'path'
 import chalk from 'chalk'
 import css from 'css'
 import Koa from 'koa'
-import koaBody from 'koa-body'
+import bodyParser from 'koa-bodyparser'
 import Router from 'koa-router'
 
 const app = new Koa()
 const router = new Router()
 
-app.use(koaBody())
+app.use(bodyParser())
 
 const readFile = path => new Promise((resolve, reject) => {
     fs.readFile(path, (e, data) => {

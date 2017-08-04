@@ -10,13 +10,22 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css": "^2.2.1",
+    "ejs": "^2.5.7",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
+    "koa-onerror": "^3.1.0",
     "koa-router": "^7.2.1"
   },
   "scripts": {
     "app": "node_modules/.bin/babel-node app",
-    "app2": "node_modules/.bin/babel-node app2"
+    "app2": "node_modules/.bin/babel-node app2",
+    "app3": "node_modules/.bin/babel-node app3",
+    "app4": "node_modules/.bin/babel-node app4",
+    "app5": "node_modules/.bin/babel-node app5",
+    "app6": "node_modules/.bin/babel-node app6",
+    "app7": "node_modules/.bin/babel-node app7",
+    "app8": "node_modules/.bin/babel-node app8",
+    "app9": "node_modules/.bin/babel-node app9"
   },
   "devDependencies": {
     "node-fetch": "^1.7.1"

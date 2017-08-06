@@ -15,7 +15,7 @@
     "koa-router": "^7.2.1"
   },
   "scripts": {
-    "app": "pm2 start app.js --interpreter ./node_modules/.bin/babel-node",
+    "app1": "pm2 start app1.js --interpreter ./node_modules/.bin/babel-node",
     "app2": "pm2 start app2.js --interpreter ./node_modules/.bin/babel-node",
     "app3": "pm2 start app3.js --interpreter ./node_modules/.bin/babel-node",
     "app4": "pm2 start app4.js --interpreter ./node_modules/.bin/babel-node",
